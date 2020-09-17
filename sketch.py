@@ -39,11 +39,11 @@ class LinkedList:
         if self.head is None:
             return None
         ret__value = self.head.get_value()
-            elif self.head == self.tail:
-                self.head = None
-                self.tail = None
-            else:
-                self.head = self.head.get_next_node()
+        elif self.head == self.tail:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.get_next_node()
         return ret_value
         # TODO
     def remove_tail(self):
