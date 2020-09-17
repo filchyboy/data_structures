@@ -36,5 +36,25 @@ class Linked_List:
         if index >= self.length():
             print("Index out of range")
             return None
+        cur_index = 0
+        cur_node = self.head
+        while True:
+            cur_node = cur_node.next
+            if cur_index == index:
+                return cur_node.data
+            cur_index += 1
 
 
+    def delete(self, index):
+        if index >= self.length():
+            print("Index out of range")
+            return None
+        cur_index = 0
+        cur_node = self.head
+        while True:
+            last_node = cur_node
+            cur_node = cur_node.next
+            if cur_index == index:
+                last_node.next = cur_node.next
+                return
+            cur_index += 1
