@@ -32,6 +32,9 @@ class Linked_List:
             elements.append(cur_node.data)
         print(elements)
 
+    def print_elements(self):
+        
+
     def get(self, index):
         if index >= self.length():
             print("Index out of range")
