@@ -1,4 +1,4 @@
-# sketch 2
+# sketch 3
 
 class Node:
     def __init__(self, data=None):
@@ -8,9 +8,12 @@ class Node:
 class Linked_List:
     def __init__(self):
         self.head = Node()
+        self.tail = self.head
 
     def append(self, data):
         new_node = Node(data)
+        self.tail.next = new_node
+        self.tail = new_node
         cur = self.head
         while cur.next != None:
             cur = cur.next
@@ -60,30 +63,39 @@ class Linked_List:
             cur_node = cur_node.next
             if cur_index == index:
                 last_node.next = cur_node.next
+                if last_node.next == None:
+                    self.tail = last_node
                 return
             cur_index += 1
 
     def delete_tail(self):
-        index = self.length()
-
-        return index
+        if self == None: 
+            return None
+        if self.next == None: 
+            self = None
+            return None
+        second_last = self 
+        while(second_last.next.next): 
+            second_last = second_last.next
+        second_last.next = None
+        return self 
 
 sprocket = Linked_List()
 sprocket.append(2)
-sprocket.append(2)
-sprocket.append(2)
-sprocket.append(2)
-sprocket.append(12)
-sprocket.append(5)
-sprocket.append(4)
-sprocket.append(3)
+# sprocket.append(2)
+# sprocket.append(2)
+# sprocket.append(2)
+# sprocket.append(12)
+# sprocket.append(5)
+# sprocket.append(4)
+# sprocket.append(3)
 print("Length", sprocket.length())
-print("Display", sprocket.display())
-print(sprocket.get(1))
-sprocket.delete(5)
-print("Length", sprocket.length())
-print("Display", sprocket.display())
-print(sprocket.get(5))
-print(sprocket.delete_tail())
+# print("Display", sprocket.display())
+# print(sprocket.get(1))
+# sprocket.delete(5)
+# print("Length", sprocket.length())
+# print("Display", sprocket.display())
+# print(sprocket.get(5))
+# print(sprocket.delete_tail())
 
 
