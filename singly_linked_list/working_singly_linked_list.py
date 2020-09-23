@@ -27,9 +27,12 @@ class LinkedList:
 
     def add_to_head(self, value):
         new_node = Node(value)
-        if self.head is not None:
+        if not self.head and not self.tail:
+            self.head = new_node
+            self.tail = new_node
+        else:
             new_node.set_next(self.head)
-        self.head = new_node
+            self.head = new_node
 
 # This function takes no arguments and removes the head of the
 # linked list.
@@ -162,17 +165,25 @@ class LinkedList:
     def add_to_tail(self, value):
         new_node = Node(value)
 
-        if self.head is None:
+        if not self.head and not self.tail:
             self.head = new_node
             self.tail = new_node
         else:
-            while(self.tail is not None):
-                self.tail = new_node
+            self.tail.set_next(new_node)
+            self.tail = new_node
+        print("\nThis is what I want to see", new_node, self.tail.value)
+
+
 
 # This function takes no arguments and deletes the tail of the linked list.
+# This is not yet working correctly.
 
     def remove_tail(self):
-        pass
+        cur_node = self.head
+        while cur_node.next_node is not None:
+            cur_node = cur_node.next_node
+        else:
+            self.tail = cur_node
 
 #
 # Interactions with classes
@@ -192,12 +203,12 @@ print("\n", ll.display(), "\n\n")
 ll.reverse()
 print(ll.display())
 # Add to tail not working
-ll.add_to_tail(111)
+ll.add_to_tail(111999)
 
 # Append working
 ll.append(111)
 print("\n", ll.display(), "\n\n")
-ll.delete_index(10)
+# ll.delete_index(10)
 print("\n", ll.display(), "\n\n")
 
 print(ll.get(10))
@@ -208,6 +219,8 @@ print("\n", ll.display(), "\n\n")
 ll.remove_head()
 print("\n", ll.display(), "\n\n")
 
+
+ll.append(1111111)
 # Remove_head is not working
 ll.remove_tail()
 print("\n", ll.display(), "\n\n")
