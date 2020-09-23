@@ -16,18 +16,18 @@ class Node:
         self.value = None
         self.next_node = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
 
-
     def add_to_head(self, value):
         new_node = Node(value)
-        if self.head != None:
+        if self.head is not None:
             new_node.set_next(self.head)
         self.head = new_node
-    
+
     def remove_head(self):
         if self.head is None:
             return None
@@ -47,7 +47,8 @@ class LinkedList:
         elements = []
         cur_node = self.head
         while self.head is not None:
-            while cur_node.next_node != None:
+            elements.append(self.head.value)
+            while cur_node.next_node is not None:
                 cur_node = cur_node.next_node
                 elements.append(cur_node.value)
             return elements
@@ -55,7 +56,7 @@ class LinkedList:
     def length(self):
         cur_node = self.head
         total = 0
-        while cur_node.next_node != None:
+        while cur_node.next_node is not None:
             total += 1
             cur_node = cur_node.next_node
         return total
@@ -63,67 +64,46 @@ class LinkedList:
     def append(self, value):
         new_node = Node(value)
         cur_node = self.head
-        while cur_node.next_node != None:
+        while cur_node.next_node is not None:
             cur_node = cur_node.next_node
-            
         cur_node.next_node = new_node
-
-
-    # def append(self, value):
-    #     new_node = Node(value)
-    #     while(self.head != None):
-    #         while(self.tail != None):
-    #             cur_node = self.tail
-    #             while cur_node.next_node != None:
-    #                 cur_node = cur_node.next_node
-    #             cur_node.next_node = new_node
-    #         else:
-    #             cur_node = self.head
-    #             while cur_node.next_node != None:
-    #                 cur_node = cur_node.next_node
-    #             cur_node.next_node = new_node
-    #         return 
 
     def reverse(self):
         previous = None
-        current = self.head 
-        while(current != None): 
+        current = self.head
+        while(current is not None):
             next_node = current.next_node
-            current.next_node = previous 
-            previous = current 
+            current.next_node = previous
+            previous = current
             current = next_node
-        self.head = previous 
+        self.head = previous
 
     def add_to_tail(self, value):
         new_node = Node(value)
-        while(self.tail != None):
-            self.tail.set_next(new_node)
-            self.tail = new_node
 
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            while(self.tail is not None):
+                self.tail = new_node
+
+
+### Interactions with classes
 
 ll = LinkedList()
-
-ll.add_to_head(1111)
-print(ll.head.value)
-
-
-ll.append(101)
-
-# ll.append(102)
-
-# ll.append(103)
-
-# ll.append(104)
-
-# ll.append(105)
-
-print(ll.length())
-print(ll.display())
+ll.add_to_head(101)
+ll.append(102)
+ll.append(0)
+for i in range(1, 51):
+    ll.append(i)
+print("\nHead:",  ll.head.value)
+print("\nLength:", ll.length())
+print("\n", ll.display(), "\n\n")
 # ll.delete_list()
 ll.reverse()
 print(ll.display())
 ll.add_to_tail(111)
-print(ll.display())
-print(ll.tail)
-
-
+ll.append(111)
+print("\n", ll.display(), "\n\n")
+# print(ll.tail)
