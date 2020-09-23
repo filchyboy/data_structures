@@ -153,6 +153,16 @@ class LinkedList:
             self.tail.set_next(new_node)
             self.tail = new_node
 
+# This function takes no arguments and deletes the tail of the linked list.
+
+    def remove_tail(self):
+        cur_node = self.head
+        while cur_node.next_node is not None:
+            last_node = cur_node
+            cur_node = cur_node.next_node
+        last_node.next_node = None
+        self.tail = last_node
+
 
 # This function takes 1 argument which is an index of the list.
 # It deletes the value at that index.
@@ -175,14 +185,8 @@ class LinkedList:
                     return
                 cur_index += 1
 
-# This function takes no arguments and deletes the tail of the linked list.
-# This is not yet working correctly.
 
-    def remove_tail(self):
-        cur_node = self.head
-        while cur_node.next_node is not None:
-            cur_node = cur_node.next_node
-            self.tail = cur_node
+
 
 #
 # Interactions with classes
@@ -232,6 +236,14 @@ ll.add_to_tail(111999)
 print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
+# Remove head
+print("\n\nRemoving the head .....")
+ll.remove_head()
+
+# Recording keeping through count & display
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
+
 # Retrieve value from index
 print("\n\nRetrieving value from index 2 .....")
 
@@ -239,22 +251,28 @@ print("\n\nRetrieving value from index 2 .....")
 print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
+# Delete value from index - not yet working
+print("\n\nDeleting value from index 2 .....")
+ll.delete_index(2)
 
-# print("\n", ll.display(), "\n\n")
-# ll.delete_list()
+# Recording keeping through count & display
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
+
+# Remove the tail
+print("\n\nRemove the tail .....")
+ll.remove_tail()
+
+# Recording keeping through count & display
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
+
+# Deleting the list
+print("\n\nDeleting the list .....")
+ll.delete_list()
+
+# Recording keeping through count & display
+# print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
 
 
-# print("\n", ll.display(), "\n\n")
-# ll.delete_index(10)
-# print("\n", ll.display(), "\n\n")
-
-
-# Remove_head is not working
-# ll.remove_head()
-# print("\n", ll.display(), "\n\n")
-
-
-# ll.append(1111111)
-# Remove_head is not working
-# ll.remove_tail()
-# print("\n", ll.display(), "\n\n")
