@@ -73,7 +73,7 @@ class LinkedList:
 
     def length(self):
         cur_node = self.head
-        total = 0
+        total = 1
         while cur_node.next_node is not None:
             total += 1
             cur_node = cur_node.next_node
@@ -88,6 +88,7 @@ class LinkedList:
         while cur_node.next_node is not None:
             cur_node = cur_node.next_node
         cur_node.next_node = new_node
+        self.tail = new_node
 
 # This function takes no arguments and reverses the order of the
 # linked list.
@@ -95,6 +96,7 @@ class LinkedList:
     def reverse(self):
         previous = None
         current = self.head
+        self.tail = self.head
         while(current is not None):
             next_node = current.next_node
             current.next_node = previous
@@ -130,13 +132,27 @@ class LinkedList:
         if index >= self.length():
             print("Index out of range")
             return None
-        cur_index = 0
+        cur_index = 1
         cur_node = self.head
-        while True:
-            cur_node = cur_node.next_node
+        while cur_node is not None:
             if cur_index == index:
                 return cur_node.value
+            cur_node = cur_node.next_node
             cur_index += 1
+
+
+# This function takes 1 argument. This adds the value to the tail of the list.
+
+    def add_to_tail(self, value):
+        new_node = Node(value)
+
+        if not self.head and not self.tail:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.set_next(new_node)
+            self.tail = new_node
+
 
 # This function takes 1 argument which is an index of the list.
 # It deletes the value at that index.
@@ -159,22 +175,6 @@ class LinkedList:
                     return
                 cur_index += 1
 
-# This function takes 1 argument. This adds the value to the tail of the list.
-# This is not yet working correctly.
-
-    def add_to_tail(self, value):
-        new_node = Node(value)
-
-        if not self.head and not self.tail:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.tail.set_next(new_node)
-            self.tail = new_node
-        print("\nThis is what I want to see", new_node, self.tail.value)
-
-
-
 # This function takes no arguments and deletes the tail of the linked list.
 # This is not yet working correctly.
 
@@ -182,45 +182,79 @@ class LinkedList:
         cur_node = self.head
         while cur_node.next_node is not None:
             cur_node = cur_node.next_node
-        else:
             self.tail = cur_node
 
 #
 # Interactions with classes
 #
+# Instantiate linked list
 
 ll = LinkedList()
+
+# Add to head
+print("\n\nAdding 101 to head .....")
 ll.add_to_head(101)
+
+# Recording keeping through count & display
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
+
+# Appending
+print("\n\nAppending 102 to list .....")
 ll.append(102)
-ll.append(0)
-for i in range(1, 51):
-    ll.append(i)
-print("\nHead:",  ll.head.value)
-print("\nLength:", ll.length())
-print("\nMaximum Value:", ll.get_max())
-print("\n", ll.display(), "\n\n")
-# ll.delete_list()
+
+# Recording keeping through count & display
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
+
+# Reversing the list
+print("\n\nReversing list .....")
 ll.reverse()
-print(ll.display())
-# Add to tail not working
+
+# Recording keeping through count & display
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
+
+# Adding a series through append
+print("\n\nAdding a series through append .....")
+for i in range(1, 11):
+    ll.append(i)
+
+# Recording keeping through count & display
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
+
+# Add to tail
+print("\n\nAdding directly to tail .....")
 ll.add_to_tail(111999)
 
-# Append working
-ll.append(111)
-print("\n", ll.display(), "\n\n")
+# Recording keeping through count & display
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
+
+# Retrieve value from index
+print("\n\nRetrieving value from index 2 .....")
+
+# Recording keeping through count & display
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
+print("Complete list:", ll.display())
+
+
+# print("\n", ll.display(), "\n\n")
+# ll.delete_list()
+
+
+# print("\n", ll.display(), "\n\n")
 # ll.delete_index(10)
-print("\n", ll.display(), "\n\n")
+# print("\n", ll.display(), "\n\n")
 
-print(ll.get(10))
-ll.add_to_head(101)
-print("\n", ll.display(), "\n\n")
 
 # Remove_head is not working
-ll.remove_head()
-print("\n", ll.display(), "\n\n")
+# ll.remove_head()
+# print("\n", ll.display(), "\n\n")
 
 
-ll.append(1111111)
+# ll.append(1111111)
 # Remove_head is not working
-ll.remove_tail()
-print("\n", ll.display(), "\n\n")
+# ll.remove_tail()
+# print("\n", ll.display(), "\n\n")
