@@ -166,26 +166,23 @@ class LinkedList:
 
 # This function takes 1 argument which is an index of the list.
 # It deletes the value at that index.
-# This is not yet working correctly.
 
     def delete_index(self, index):
         if index >= self.length():
             print("Index out of range")
             return None
         else:
-            cur_index = 0
+            cur_index = 1
             cur_node = self.head
-            while True:
+            while cur_node.next_node is not None:
                 last_node = cur_node
                 cur_node = cur_node.next_node
-                if cur_index == index:
-                    last_node.next = cur_node.next_node
+                if cur_index == index -1:
+                    last_node.next_node = cur_node.next_node
                     if last_node.next_node is None:
                         self.tail = last_node
                     return
                 cur_index += 1
-
-
 
 
 #
