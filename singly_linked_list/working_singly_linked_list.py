@@ -177,7 +177,7 @@ class LinkedList:
             while cur_node.next_node is not None:
                 last_node = cur_node
                 cur_node = cur_node.next_node
-                if cur_index == index -1:
+                if cur_index == index - 1:
                     last_node.next_node = cur_node.next_node
                     if last_node.next_node is None:
                         self.tail = last_node
@@ -197,7 +197,8 @@ print("\n\nAdding 101 to head .....")
 ll.add_to_head(101)
 
 # Recording keeping through count & display
-print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:",
+      ll.get_max(), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
 # Appending
@@ -205,7 +206,8 @@ print("\n\nAppending 102 to list .....")
 ll.append(102)
 
 # Recording keeping through count & display
-print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:",
+      ll.get_max(), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
 # Reversing the list
@@ -213,7 +215,8 @@ print("\n\nReversing list .....")
 ll.reverse()
 
 # Recording keeping through count & display
-print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:",
+      ll.get_max(), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
 # Adding a series through append
@@ -222,7 +225,8 @@ for i in range(1, 11):
     ll.append(i)
 
 # Recording keeping through count & display
-print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:",
+      ll.get_max(), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
 # Add to tail
@@ -230,7 +234,8 @@ print("\n\nAdding directly to tail .....")
 ll.add_to_tail(111999)
 
 # Recording keeping through count & display
-print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:",
+      ll.get_max(), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
 # Remove head
@@ -238,14 +243,16 @@ print("\n\nRemoving the head .....")
 ll.remove_head()
 
 # Recording keeping through count & display
-print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Tail:", ll.tail.value)
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:",
+      ll.get_max(), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
 # Retrieve value from index
 print("\n\nRetrieving value from index 2 .....")
 
 # Recording keeping through count & display
-print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:",
+      ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
 # Delete value from index - not yet working
@@ -253,7 +260,8 @@ print("\n\nDeleting value from index 2 .....")
 ll.delete_index(2)
 
 # Recording keeping through count & display
-print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:",
+      ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
 # Remove the tail
@@ -261,7 +269,8 @@ print("\n\nRemove the tail .....")
 ll.remove_tail()
 
 # Recording keeping through count & display
-print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
+print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:",
+      ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
 
 # Deleting the list
@@ -269,7 +278,4 @@ print("\n\nDeleting the list .....")
 ll.delete_list()
 
 # Recording keeping through count & display
-# print("Head:",  ll.head.value, "Length:", ll.length(), "Maximum Value:", ll.get_max(), "Retrieved Value:", ll.get(2), "Tail:", ll.tail.value)
 print("Complete list:", ll.display())
-
-
